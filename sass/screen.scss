@@ -3,8 +3,26 @@
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/**
+     * CONTENTS
+     * 
+     * SETTINGS
+     * variables............................变量集中存储文件
+     * mixin............................mixin集中存储文件
+     * 
+     * TOOLS
+     * 
+     * COMPONENTS
+     * reset....................................Compass内置浏览器重置样式文件
+     * 
+     * BUSINESS
+     * 
+     * BASE
+     * screen..................................针对当前站点主页的样式修饰
+     * 
+ */
 
-@import "variables", "compass/reset"; 
+@import "variables", "compass/reset", "mixin"; 
 
 /* 主标题样式 */
 .headline {
@@ -12,6 +30,30 @@
 }
 
 /* 页面主体内容样式 */
+//class 嵌套
 .main-sec {
     font-family: $main-sec-ff;
+
+    .headline {
+        //font-family: $main-sec-ff;
+        //font-size: 16px;
+        //样式嵌套
+        font: {
+            family: $headline-ff;
+            size: 16px;
+        }
+    }
+    
+    .detail {
+        font-size: 12px;
+    }
 }
+
+//functions @mixin @extend @include 
+/**
+a {
+    &:hover { //& 父类选择器
+        color: blue;
+    }
+}*/
+
