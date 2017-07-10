@@ -1,0 +1,32 @@
+@charset "utf-8";
+
+@mixin col-6 {
+    width: 50%;
+    float: left;
+}
+
+//@each 遍历map
+//@for @while 循环
+
+//传递参数
+@mixin col-sm ($width: 50%) { //默认值50%
+    //验证参数是否合法
+    @if type-of($width) != number {
+        @error "$width 必须是一个数值类型，你输入的width是：#{$width}.";//字符串中引用变量#{$width}
+    }
+    
+    @if not unitless($width) {//是否有单位
+        @if unit($width) != "%"{//unit($width) 返回单位
+            @error "$width应该是一个百分值，你输入的是：#{$width}.";
+        }
+    } @else {
+        @warn "$width应该是一个百分值，你输入的是：#{$width}.";
+        $width: (percentage($width)) / 100;//转成百分比
+    }
+    
+    @media(min-width: 768px){
+        width: $width;
+        float: left;
+    }
+    
+}
