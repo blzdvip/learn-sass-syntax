@@ -7,8 +7,9 @@
      * CONTENTS
      * 
      * SETTINGS
-     * variables............................变量集中存储文件
+     * variables............................变量集中存储文件 
      * mixin............................mixin集中存储文件
+     * icons.............................合图集中存储文件
      * 
      * TOOLS
      * 
@@ -29,6 +30,10 @@
 @import "compass/typography/text";
 @import "compass/typography/vertical_rhythm";
 
+@import "compass/utilities/color";
+@import "compass/utilities/print";
+
+@import "icons";
 
 /* 主标题样式 */
 .headline {
@@ -115,6 +120,7 @@ a {
         color: blue;
     }
 }*/
+
 
 
 
